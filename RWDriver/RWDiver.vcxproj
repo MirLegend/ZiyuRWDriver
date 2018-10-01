@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="MyDriverCheck|Win32">
+      <Configuration>MyDriverCheck</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{EAE2F068-585C-411A-82BD-9AFBE8E8D295}</ProjectGuid>
+    <RootNamespace>MyHelloDriver</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='MyDriverCheck|Win32'">
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MyDriverCheck|Win32'">
+    <ExecutablePath>D:\WinDDK\7600.16385.1\bin\x86\x86</ExecutablePath>
+    <IncludePath />
+    <ReferencePath>D:\WinDDK\7600.16385.1\lib\Crt\i386;D:\WinDDK\7600.16385.1\lib\ATL\i386;D:\WinDDK\7600.16385.1\lib\wxp\i386</ReferencePath>
+    <LibraryPath>D:\WinDDK\7600.16385.1\lib\Crt\i386;D:\WinDDK\7600.16385.1\lib\ATL\i386;D:\WinDDK\7600.16385.1\lib\wxp\i386</LibraryPath>
+    <LibraryWPath />
+    <SourcePath />
+    <ExcludePath />
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MyDriverCheck|Win32'">
+    <ClCompile>
+      <CompileAsManaged>
+      </CompileAsManaged>
+      <AdditionalIncludeDirectories>D:\WinDDK\7600.16385.1\inc\crt;D:\WinDDK\7600.16385.1\inc\api;D:\WinDDK\7600.16385.1\inc\ddk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <Optimization>Disabled</Optimization>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CallingConvention>StdCall</CallingConvention>
+      <PreprocessorDefinitions>_X86_;_DDK_;_DEBUG;DBG=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>/SECTION:INIT,D /IGNORE:4078 /safeseh:no %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>ntoskrnl.lib;ndis.lib;Hal.lib;wdm.lib;wdmsec.lib;wmilib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <Driver>Driver</Driver>
+      <EntryPointSymbol>DriverEntry</EntryPointSymbol>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateMapFile>true</GenerateMapFile>
+      <SubSystem>Native</SubSystem>
+      <RandomizedBaseAddress>
+      </RandomizedBaseAddress>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Driver.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Driver.h" />
+    <ClInclude Include="SAL\WIN732.h" />
+    <ClInclude Include="SAL\WINXP32.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

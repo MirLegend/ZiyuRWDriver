@@ -1,0 +1,15 @@
+# ----[ Visual Studio ]------- #
+*.suo
+*.user
+*.ncb
+*.plg
+*.opt
+*.aps
+*.aps
+*.sdf
+*.opensdf
+*.exp
+*.idb
+*.ilk
+*.exe
+*.pdb
